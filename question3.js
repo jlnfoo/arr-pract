@@ -19,7 +19,6 @@ for (let j = 0; j <mockData.length; j++) {
 
         for(let k = 0; k < atLeastOne; k++){
             const portPosition = mockData[j].portfolio[k].position;
-            //console.log(portPosition);
 
             if (portPosition > 200) {
             fullName = mockData[j].firstName + " " + mockData[j].lastName;
