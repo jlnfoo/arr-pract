@@ -1,30 +1,21 @@
-const mockData = require('./mockData.json');
+const mockData = require("./mockData.json");
 
 //3. console log out the full names of all the people that has a stock with a position greater than 200
 
-for (let j = 0; j <mockData.length; j++) {
-    let fullName;
-    let atLeastOne;
+for (let i = 0; i < mockData.length; i++) {
+  const fullName = `${mockData[i].firstName} ${mockData[i].lastName}`;
 
-    const numOfStocks = mockData[j].portfolio.length; 
+  let moreThan200 = false;
 
-    // skips over people with no stock
-    // The continue statement "jumps over" one iteration in the loop
-     if (!numOfStocks) {
-        continue;
-     } 
-     else if (numOfStocks >= 1) {
-        atLeastOne = mockData[j].portfolio.length; 
+  for (let k = 0; k < mockData[i].portfolio.length; k++) {
+    if (mockData[i].portfolio[k].position > 200) {
+      moreThan200 = true;
     }
+  }
 
-        for(let k = 0; k < atLeastOne; k++){
-            const portPosition = mockData[j].portfolio[k].position;
-
-            if (portPosition > 200) {
-            fullName = mockData[j].firstName + " " + mockData[j].lastName;
-            }
-        }
-
-    console.log("Full name of person with portfolio position of more than 200 : " + fullName);
-    }
-
+  if (moreThan200) {
+    console.log(
+      "Full name of person with stock position of more than 200 : " + fullName
+    );
+  }
+}
